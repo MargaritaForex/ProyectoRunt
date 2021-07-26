@@ -1,5 +1,7 @@
 package com.runt.prueba.ingreso.runt.entitys;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="asignatura")
-public class Asignatura {
+public class Asignatura implements Serializable {
 
 private static final long serialVersionUID = 1L;
 	
