@@ -1,11 +1,17 @@
 package com.runt.prueba.ingreso.runt.entitys;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +24,13 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nombre;
+    @OneToMany(mappedBy = "asignatura")
+    Set<AsignaturaEstudiante> asignaturaDetalle;
+    
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_docente", nullable = false)
+    Docente docente;
+	
 	
 	public Long getId() {
 		return id;

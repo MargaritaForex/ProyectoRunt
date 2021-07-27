@@ -22,4 +22,6 @@ public class AsignaturaController {
 		return asignaturaService.getAsignaturas();
 	}
 
+	
 }
+

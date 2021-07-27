@@ -5,15 +5,33 @@
     );
     
     
+     CREATE TABLE `asignatura_detalle` (
+	`id` long auto_increment,
+	`id_estudiante` long,
+	`id_asignatura` long,
+     PRIMARY KEY (id)
+    );
+    
+     CREATE TABLE `docente` (
+	`id` long auto_increment,
+	`nombre` varchar(255),
+	`id_asignatura` long,
+     PRIMARY KEY (id)
+    );
+    
+    
     CREATE TABLE `asignatura` (
 	`id` long auto_increment,
     `nombre` varchar(255),
+    `asignaturaEstudiante` varchar(255),    
+     `id_docente` varchar(255),    
      PRIMARY KEY (id)
     );
     
     CREATE TABLE `curso` (
 	`id` long auto_increment,
-    `grado` varchar(255),
+	`id_colegio` long,
+    `grado` varchar(255), 
      PRIMARY KEY (id)
     );
     

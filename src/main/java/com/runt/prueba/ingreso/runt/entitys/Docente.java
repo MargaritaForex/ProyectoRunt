@@ -10,10 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="estudiante")
-public class Estudiante implements Serializable {
+@Table(name="docente")
+public class Docente implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -21,26 +20,7 @@ public class Estudiante implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nombre;
-	@OneToMany(mappedBy = "estudiante")
-    Set<AsignaturaEstudiante> asignaturaDetalle;
-	
+    @OneToMany(mappedBy = "docente")
+    Set<Asignatura> asignatura;
 
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public String getNombre() {
-		return nombre;
-	}
-	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}	
-
-
-	
 }
