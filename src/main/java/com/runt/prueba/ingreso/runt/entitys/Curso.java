@@ -28,6 +28,16 @@ private static final long serialVersionUID = 1L;
 	 @ManyToOne(fetch = FetchType.LAZY, optional = false)
      @JoinColumn(name = "id_colegio", nullable = false)
      private Colegio colegio;
+	 
+	 @OneToMany(mappedBy = "curso")
+	 Set<AsignaturaEstudiante> salon;
+	 
+	 @OneToMany(mappedBy = "curso")
+	 Set<Asignatura> asignaturas;
+	 
+	 @ManyToOne(fetch = FetchType.EAGER)
+     @JoinColumn(name = "id_docente", nullable = false)
+     Docente docente;
 	
 	public Long getId() { 
 		return id;
@@ -38,10 +48,16 @@ private static final long serialVersionUID = 1L;
 	public String getGrado() {
 		return grado;
 	}
+	
 	public void setGrado(String grado) {
 		this.grado = grado;
 	}
-	
-	
+	public Set<AsignaturaEstudiante> getSalon() {
+		return salon;
+	}
+	public void setSalon(Set<AsignaturaEstudiante> salon) {
+		this.salon = salon;
+	}
+
 
 }

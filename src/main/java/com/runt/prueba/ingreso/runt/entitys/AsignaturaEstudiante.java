@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="asignaturaEstudiante")
+@Table(name="asignatura_estudiante")
 public class AsignaturaEstudiante {
 	
 private static final long serialVersionUID = 1L;
@@ -26,5 +26,35 @@ private static final long serialVersionUID = 1L;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_asignatura", nullable = false)
     Asignatura asignatura;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_curso", nullable = false)
+    Curso curso;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Estudiante getEstudiante() {
+		return estudiante;
+	}
+
+	public void setEstudiante(Estudiante estudiante) {
+		this.estudiante = estudiante;
+	}
+
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
+
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
+	}
+    
+    
 
 }

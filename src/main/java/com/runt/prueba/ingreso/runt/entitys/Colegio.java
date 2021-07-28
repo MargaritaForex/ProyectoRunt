@@ -24,7 +24,7 @@ public class Colegio implements Serializable {
 	private String nombre;
 	 @OneToMany(mappedBy = "colegio", fetch = FetchType.LAZY,
 	            cascade = CascadeType.ALL)
-	    private Set<Curso> pages;
+	    private Set<Curso> cursos;
 	
 	public Long getId() {
 		return id;
@@ -38,6 +38,13 @@ public class Colegio implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	public Set<Curso> getCursos() {
+		return cursos;
+	}
+	public void setCursos(Set<Curso> cursos) {
+		this.cursos = cursos;
+	}
+	
 	
 	
 }

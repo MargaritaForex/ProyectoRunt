@@ -3,7 +3,6 @@ package com.runt.prueba.ingreso.runt.entitys;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,13 +24,14 @@ private static final long serialVersionUID = 1L;
 	private Long id;
 	private String nombre;
     @OneToMany(mappedBy = "asignatura")
-    Set<AsignaturaEstudiante> asignaturaDetalle;
+    Set<AsignaturaEstudiante> asignaturaDetalle;   	
+	
     
-	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_docente", nullable = false)
-    Docente docente;
-	
-	
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_curso", nullable = false)
+    Curso curso;
+
+    
 	public Long getId() {
 		return id;
 	}
@@ -44,6 +44,7 @@ private static final long serialVersionUID = 1L;
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	
 	
 }
