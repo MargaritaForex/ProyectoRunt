@@ -9,7 +9,7 @@ public interface IDocenteService {
 	
 	public List<Docente> obtenerDocentes();
 	
-	public Optional<Docente> obtenerDocentesPorId(String id);
+	public Docente obtenerDocentesPorId(String id);
 	
 	
 	

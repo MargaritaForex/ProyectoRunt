@@ -22,8 +22,8 @@ public class DocenteService implements IDocenteService{
 	}
 
 	@Override
-	public Optional<Docente> obtenerDocentesPorId(String id) {
-		return docenteDao.findById(Long.parseLong(id));	
+	public Docente obtenerDocentesPorId(String id) {		
+		return docenteDao.findById(Long.parseLong(id)).get();
 	}
 
 }

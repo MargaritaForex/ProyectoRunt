@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.runt.prueba.ingreso.runt.dto.DocenteDto;
 import com.runt.prueba.ingreso.runt.entitys.Docente;
+import com.runt.prueba.ingreso.runt.mapper.IMapperDocente;
 import com.runt.prueba.ingreso.runt.services.IDocenteService;
 
 @RestController
@@ -19,6 +21,9 @@ public class DocenteController {
 	
 	@Autowired
 	private IDocenteService docenteService;	
+	
+	@Autowired
+	private IMapperDocente mapperDocente;	
 
 	@GetMapping(value="docentes")
 	public List<Docente> obtenerDocentes() {
@@ -26,8 +31,8 @@ public class DocenteController {
 	}
 	
 	@GetMapping(value="docentesPorId/{id}")
-	public Optional<Docente> obtenerDocentesPorId(@PathVariable("id") String id) {
-		return docenteService.obtenerDocentesPorId(id);
+	public DocenteDto obtenerDocentesPorId(@PathVariable("id") String id) {
+		return mapperDocente.getDocentePorId(docenteService.obtenerDocentesPorId(id));
 	}
 	
 }
